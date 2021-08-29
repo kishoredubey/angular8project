@@ -1,0 +1,40 @@
+<div class="card">
+    <div class="card-body">
+        <form [formGroup]="angForm" novalidate >  
+            <div class="form-group"> 
+                <mat-label>Category</mat-label>
+                <!-- <mat-form-field>
+                    <mat-select [(value)]="selected">
+                        <mat-option *ngFor = "let category of categories" [value]="category.id">
+                          {{ category.categoryName }}
+                        </mat-option>
+                      </mat-select>
+                </mat-form-field> -->
+                <label class="col-md-4"> Category</label>  
+                <select (change)="onCategoryChange($event.target.value)">
+                    <option *ngFor = "let category of categories" value={{category.id}}>
+                        {{category.categoryName}}
+                    </option>
+                </select>   
+            </div>
+            <div class="form-group"> 
+                <label class="col-md-4"> SubCategory Name</label>  
+                <input type="text" class="form-control"   
+                    formControlName="subcategoryName"   
+                    #subcategoryName />  
+            </div>
+            <div class="form-group"> 
+                <label class="col-md-4">Image</label>  
+                <input type="file" (change)="onFileChanged($event)"
+                    class="form-control"   
+                    formControlName="subcategoryImage"   
+                    #subcategoryImage />  
+            </div>
+            <div class="form-group">  
+                <button (click) = "createSubCategory(subcategoryName.value)" type="submit" class="btn btn-primary">  
+                Create 
+              </button>  
+            </div>  
+        </form>
+    </div>
+</div>

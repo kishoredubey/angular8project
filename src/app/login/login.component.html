@@ -1,0 +1,23 @@
+<div class="card">
+    <div class="card-body">
+        <form [formGroup]="angForm" novalidate>
+          <div class="form-group">
+            <label class="col-md-4">User Name</label>  
+            <input type="text"  class="form-control"   
+            formControlName="usernameControl"   
+            #username />
+          </div>
+          <div class="form-group">
+            <label class="col-md-4">Password</label>  
+            <input type="password"  class="form-control"   
+            formControlName="passwordControl"   
+            #password />
+          </div>
+          <div class="form-group">
+            <button (click) = "login(username.value, password.value)" type="submit" class="btn btn-primary">
+                Login
+              </button>
+          </div>
+        </form>
+    </div>
+</div>

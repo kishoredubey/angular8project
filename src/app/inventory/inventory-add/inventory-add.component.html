@@ -1,0 +1,23 @@
+<div class="card">
+    <div class="card-body">
+        <form [formGroup]="angForm" novalidate >  
+            <div class="form-group"> 
+                <label class="col-md-4"> Product Id</label>   
+                <input type="text" class="form-control"   
+                    formControlName="productId"   
+                    #productId />  
+            </div>
+            <div class="form-group"> 
+                <label class="col-md-4"> Stock Qty</label>  
+                <input type="text" class="form-control"   
+                    formControlName="stockQty"   
+                    #stockQty />  
+            </div>
+            <div class="form-group">  
+                <button (click) = "addInventory(productId.value, stockQty.value)" type="submit" class="btn btn-primary">  
+                Submit 
+              </button>  
+            </div>  
+        </form>
+    </div>
+</div>

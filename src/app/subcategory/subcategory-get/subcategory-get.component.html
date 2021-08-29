@@ -1,0 +1,29 @@
+<div class="form-group"> 
+    <label class="col-md-4"> Category</label>  
+    <select (change)="onCategoryChange($event.target.value)">
+        <option *ngFor = "let category of categories" value={{category.id}}>
+            {{category.categoryName}}
+        </option>
+    </select>   
+</div>
+<table class="table table-hover">  
+    <thead>  
+    <tr>  
+        <td>SubCategory Name</td>  
+        <td>SubCategory Description</td>  
+        <td>Active</td>  
+        <td>Creation Date</td>  
+        <td colspan="2">Actions</td>  
+    </tr>  
+    </thead>  
+    <tbody>  
+        <tr *ngFor="let subcategory of subcategories">  
+            <td>{{ subcategory.subCategoryName }}</td>  
+            <td>{{ subcategory.description }}</td>  
+            <td>{{ subcategory.active  }}</td>  
+            <td>{{ subcategory.createDate }}</td>
+            <td><a [routerLink]="['/subcategories', subcategory.id]" class="btn btn-primary">Edit</a></td>  
+            <td><a (click) = "deleteSubCategory(subcategory.id)" class="btn btn-danger">Delete</a> 
+        </tr>  
+    </tbody>  
+  </table>  
